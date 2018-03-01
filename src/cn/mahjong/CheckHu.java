@@ -1,11 +1,6 @@
 package cn.mahjong;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.function.BooleanSupplier;
 import java.util.stream.Collectors;
@@ -39,7 +34,11 @@ public class CheckHu implements Callable<Map<Integer, Boolean>> {
         Collections.sort(list);
         this.checkDeckList = list;
         this.map = list.stream().collect(Collectors.groupingBy(integer -> integer, Collectors.counting()));
-        return !check4count();
+        try {
+            return !check4count();
+        } catch (NoSuchElementException e) {
+            return false;
+        }
     };
 
     private boolean check4count() {
