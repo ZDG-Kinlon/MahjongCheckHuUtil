@@ -1,9 +1,17 @@
-# MahjongCheckHuUtil
-可以对待测list集合的牌组进行判断是否为胡牌，在不知道听牌的情况下，也可以借助多线程快速找出听牌的集合，同时支持多个待测牌组同时寻找听牌的集合
+package cn.demo;
 
-使用示例：
-**判断胡牌方法1**
-```
+import cn.mahjong.CheckHu;
+import cn.mahjong.Deck;
+import cn.mahjong.FindHu;
+import cn.mahjong.FindHus;
+import org.junit.Test;
+
+import java.util.List;
+import java.util.Map;
+
+public class testDemo {
+
+    @Test
 public void checkDemo1() {
     try {
         //1.创建待测牌组，可以不按顺序
@@ -20,10 +28,8 @@ public void checkDemo1() {
         e.printStackTrace();
     }
 }
-```
-**判断胡牌方法2**
 
-```
+    @Test
 public void checkDemo2() {
     try {
         //1.创建待测牌组，可以不按顺序
@@ -43,9 +49,8 @@ public void checkDemo2() {
         e.printStackTrace();
     }
 }
-```
-**寻找听牌方法**
-```
+
+@Test
 public void findDemo1() {
     try {
         //1.创建待测牌组，可以不按顺序
@@ -64,10 +69,8 @@ public void findDemo1() {
         e.printStackTrace();
     }
 }
-```
-**寻找多牌组的听牌**
 
-```
+    @Test
 public void findDemo2() {
     try {
         //1.创建待测牌组，可以不按顺序，需要转换为编号牌集合
@@ -115,4 +118,5 @@ public void findDemo2() {
     } catch (IndexOutOfBoundsException e) {
         e.printStackTrace();
     }
+}
 }
